@@ -10,10 +10,20 @@
 		<p>Feel free to refresh if you would like to play again!</p>
 		<script>
 
+			// This "for" loop will execute the "game" function five times.
 			for(i = 0; i < 5; i++){
 				game();
 			}
 
+			/* 
+				The "game" function prompts the user for an answer (with detailed instructions of this console game), which is added to the "playerSelection" constant value.  
+
+				Then, the constant value of "computerSelection" is automatically generated via the "computerPlay" function.  
+
+				Afterwards, the results of the "playerSelection" and "computerPlay" functions are executed as arguments in the "playRound" function.
+
+				Finally, the result of the "playRound" function is logged into the console.
+			*/
 			function game(){
 				for(i = 0; i < 5; i++){
 					const playerSelection = prompt("Welcome to my game of \'rock, paper, scissors\'.\n\nPlease make your choice: \'rock\', \'paper\', or \'scissors\'? \n\nYou may track your progress in the current game by accessing the developer\'s console via right\-click then \'Inspect Element\'.");
@@ -23,6 +33,15 @@
 				}
 			}
 
+			/*
+				The "playRound" function takes the results of the "playerSelection" and "computerSelection" functions as arguments.
+
+				This activates a switch statement depending on the player's answer and compares it to the computer's selection.
+
+				Depending on the result of this statement, the player wins, loses, or has a draw, and a special statement is output to the console regarding these results.
+
+				However, if a user does not conform to typing in a valid option, they lose their turn, resulting in no result.
+			*/
 			function playRound(playerSelection, computerSelection){
 				let result;
 				switch(playerSelection){
@@ -70,6 +89,13 @@
 				}
 			}
 
+			/*
+				This function is how the computer automatically selects a choice.
+
+				This selection involves the use of "Math.random()", which randomly selects a number between 0 and 1.
+
+				Depending on this selection, the computer has either chosen "rock", "paper", or "scissors" for the purpose of the game.
+			*/
 			function computerPlay(){
 				let num = Math.random();
 				if(num <= (1/3)){
